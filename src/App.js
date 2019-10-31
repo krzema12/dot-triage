@@ -19,7 +19,10 @@ function App() {
         >
           Learn React
         </a>
-        <DotTriageComponent/>
+        <DotTriageComponent
+            groupSizeAffected="medium"
+            probability="high"
+            impact="low"/>
       </header>
     </div>
   );

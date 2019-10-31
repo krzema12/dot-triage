@@ -1,13 +1,45 @@
 import React from 'react';
 
-function DotTriageComponent() {
+function DotTriageComponent(props) {
   return (
     <div>
-    { _pieWithBorder("100px", 1.0, 95, "#00FF00") }
-    { _pieWithBorder("100px", 0.7, 194, "#00FF00") }
-    { _pieWithBorder("100px", 0.4, 194, "#0000FF") }
+      {
+        _pieWithBorder(
+          "100px",
+          _groupSizeAffectedToNormalizedRadius(props.groupSizeAffected),
+          _probabilityToPieAngle(props.probability),
+          _impactToColor(props.impact))
+      }
     </div>
   );
+}
+
+function _groupSizeAffectedToNormalizedRadius(groupSizeAffected) {
+  switch (groupSizeAffected) {
+    case "small": return 0.4;
+    case "medium": return 0.7;
+    case "large": return 1.0;
+    default: return 1.0;
+  }
+}
+
+function _probabilityToPieAngle(probability) {
+  switch (probability) {
+    case "low": return 90;
+    case "medium": return 180;
+    case "high": return 270;
+    case "always": return 360;
+    default: return 360;
+  }
+}
+
+function _impactToColor(impact) {
+  switch (impact) {
+    case "low": return "#4CFF46";
+    case "medium": return "#FFED46";
+    case "high": return "#FF4646";
+    default: return "gray";
+  }
 }
 
 function _pieWithBorder(totalSize, normalizedRadius, angleInDegrees, color) {
