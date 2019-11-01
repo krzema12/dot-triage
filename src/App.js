@@ -25,7 +25,7 @@ const groupSizeAffectedMarks = [
   },
   {
     value: 3,
-    label: 'high',
+    label: 'large',
   },
 ];
 
