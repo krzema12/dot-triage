@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography'
@@ -75,45 +76,47 @@ function App() {
 
   return (
     <div className="App">
-      <Paper className={classes.root}>
-        <DotTriageComponent
-            groupSizeAffected={categoricalValue(groupSizeAffectedMarks, groupSizeAffected)}
-            probability={categoricalValue(probabilityMarks, probability)}
-            impact={categoricalValue(impactMarks, impact)}/>
-        <Typography gutterBottom>
-          Group size affected
-        </Typography>
-        <Slider
-          min={1}
-          max={3}
-          defaultValue={groupSizeAffected}
-          aria-labelledby="discrete-slider-restrict"
-          step={null}
-          marks={groupSizeAffectedMarks}
-          onChange={(event, value) => setGroupSizeAffected(value)}/>
-        <Typography gutterBottom>
-          Probability
-        </Typography>
-        <Slider
-          min={1}
-          max={4}
-          defaultValue={probability}
-          aria-labelledby="discrete-slider-restrict"
-          step={null}
-          marks={probabilityMarks}
-          onChange={(event, value) => setProbability(value)}/>
-        <Typography gutterBottom>
-          Impact
-        </Typography>
-        <Slider
-          min={1}
-          max={3}
-          defaultValue={impact}
-          aria-labelledby="discrete-slider-restrict"
-          step={null}
-          marks={impactMarks}
-          onChange={(event, value) => setImpact(value)}/>
-      </Paper>
+      <Container maxWidth="sm">
+        <Paper className={classes.root}>
+          <DotTriageComponent
+              groupSizeAffected={categoricalValue(groupSizeAffectedMarks, groupSizeAffected)}
+              probability={categoricalValue(probabilityMarks, probability)}
+              impact={categoricalValue(impactMarks, impact)}/>
+          <Typography gutterBottom>
+            Group size affected
+          </Typography>
+          <Slider
+            min={1}
+            max={3}
+            defaultValue={groupSizeAffected}
+            aria-labelledby="discrete-slider-restrict"
+            step={null}
+            marks={groupSizeAffectedMarks}
+            onChange={(event, value) => setGroupSizeAffected(value)}/>
+          <Typography gutterBottom>
+            Probability
+          </Typography>
+          <Slider
+            min={1}
+            max={4}
+            defaultValue={probability}
+            aria-labelledby="discrete-slider-restrict"
+            step={null}
+            marks={probabilityMarks}
+            onChange={(event, value) => setProbability(value)}/>
+          <Typography gutterBottom>
+            Impact
+          </Typography>
+          <Slider
+            min={1}
+            max={3}
+            defaultValue={impact}
+            aria-labelledby="discrete-slider-restrict"
+            step={null}
+            marks={impactMarks}
+            onChange={(event, value) => setImpact(value)}/>
+        </Paper>
+      </Container>
     </div>
   );
 }
