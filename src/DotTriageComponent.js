@@ -2,15 +2,15 @@ import React from 'react';
 
 function DotTriageComponent(props) {
   return (
-    <div style={{textAlign: 'center'}}>
+    <span>
       {
         _pieWithBorder(
-          "100px",
+          props.size || "100px",
           _groupSizeAffectedToNormalizedRadius(props.groupSizeAffected),
           _probabilityToPieAngle(props.probability),
           _impactToColor(props.impact))
       }
-    </div>
+    </span>
   );
 }
 

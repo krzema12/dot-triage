@@ -78,10 +78,12 @@ function App() {
     <div className="App">
       <Container maxWidth="sm">
         <Paper className={classes.root}>
-          <DotTriageComponent
-              groupSizeAffected={categoricalValue(groupSizeAffectedMarks, groupSizeAffected)}
-              probability={categoricalValue(probabilityMarks, probability)}
-              impact={categoricalValue(impactMarks, impact)}/>
+          <div style={{textAlign: 'center'}}>
+            <DotTriageComponent
+                groupSizeAffected={categoricalValue(groupSizeAffectedMarks, groupSizeAffected)}
+                probability={categoricalValue(probabilityMarks, probability)}
+                impact={categoricalValue(impactMarks, impact)}/>
+          </div>
           <Typography gutterBottom>
             Group size affected
           </Typography>
