@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Paper from '@material-ui/core/Paper';
 import Slider from '@material-ui/core/Slider';
@@ -61,46 +61,57 @@ const impactMarks = [
   },
 ];
 
+function categoricalValue(marks, value) {
+  return marks.find(mark => mark.value === value).label;
+}
+
 function App() {
   const classes = useStyles();
+
+  const [groupSizeAffected, setGroupSizeAffected] = useState(2)
+  const [probability, setProbability] = useState(3)
+  const [impact, setImpact] = useState(2)
 
   return (
     <div className="App">
       <Paper className={classes.root}>
         <DotTriageComponent
-            groupSizeAffected="medium"
-            probability="high"
-            impact="low"/>
+            groupSizeAffected={categoricalValue(groupSizeAffectedMarks, groupSizeAffected)}
+            probability={categoricalValue(probabilityMarks, probability)}
+            impact={categoricalValue(impactMarks, impact)}/>
         <Typography gutterBottom>
           Group size affected
         </Typography>
         <Slider
           min={1}
           max={3}
-          defaultValue={2}
+          defaultValue={groupSizeAffected}
           aria-labelledby="discrete-slider-restrict"
           step={null}
-          marks={groupSizeAffectedMarks}/>
+          marks={groupSizeAffectedMarks}
+          onChange={(event, value) => setGroupSizeAffected(value)}/>
         <Typography gutterBottom>
           Probability
         </Typography>
         <Slider
           min={1}
           max={4}
-          defaultValue={3}
+          defaultValue={probability}
           aria-labelledby="discrete-slider-restrict"
           step={null}
-          marks={probabilityMarks}/>
+          marks={probabilityMarks}
+          onChange={(event, value) => setProbability(value)}/>
         <Typography gutterBottom>
           Impact
         </Typography>
         <Slider
           min={1}
           max={3}
-          defaultValue={2}
+          defaultValue={impact}
           aria-labelledby="discrete-slider-restrict"
           step={null}
-          marks={impactMarks}/>
+          marks={impactMarks}
+          onChange={(event, value) => setImpact(value)}/>
       </Paper>
     </div>
   );
