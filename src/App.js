@@ -9,6 +9,7 @@ import DotTriageComponent from './DotTriageComponent';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(5, 5),
+    margin: theme.spacing(5, 5),
   },
 }));
 

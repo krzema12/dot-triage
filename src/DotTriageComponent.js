@@ -2,7 +2,7 @@ import React from 'react';
 
 function DotTriageComponent(props) {
   return (
-    <div>
+    <div style={{textAlign: 'center'}}>
       {
         _pieWithBorder(
           "100px",
@@ -50,14 +50,12 @@ function _pieWithBorder(totalSize, normalizedRadius, angleInDegrees, color) {
   const largeArcFlag = angleInDegrees > 180 ? 1 : 0
 
   return (
-    <div>
-      <svg width={totalSize} height={totalSize} viewBox="-1 -1 2 2">
-        <g transform="rotate(-90)">
-          <circle cx="0" cy="0" r="0.975" fill="none" stroke={color} strokeWidth="0.05" strokelocation="inside" />
-          <path d={"M0,0 L" + normalizedRadius + ",0 A" + normalizedRadius + "," + normalizedRadius + " 0 " + largeArcFlag + ",1 " + endPointY + "," + endPointX + " Z"} fill={color}/>
-        </g>
-      </svg>
-    </div>
+    <svg width={totalSize} height={totalSize} viewBox="-1 -1 2 2">
+      <g transform="rotate(-90)">
+        <circle cx="0" cy="0" r="0.975" fill="none" stroke={color} strokeWidth="0.05" strokelocation="inside" />
+        <path d={"M0,0 L" + normalizedRadius + ",0 A" + normalizedRadius + "," + normalizedRadius + " 0 " + largeArcFlag + ",1 " + endPointY + "," + endPointX + " Z"} fill={color}/>
+      </g>
+    </svg>
   )
 }
 
