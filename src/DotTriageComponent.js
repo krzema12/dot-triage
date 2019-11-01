@@ -53,7 +53,7 @@ function _pieWithBorder(totalSize, normalizedRadius, angleInDegrees, color) {
     <div>
       <svg width={totalSize} height={totalSize} viewBox="-1 -1 2 2">
         <g transform="rotate(-90)">
-          <circle cx="0" cy="0" r="0.975" fill="none" stroke={color} stroke-width="0.05" stroke-location="inside" />
+          <circle cx="0" cy="0" r="0.975" fill="none" stroke={color} strokeWidth="0.05" strokelocation="inside" />
           <path d={"M0,0 L" + normalizedRadius + ",0 A" + normalizedRadius + "," + normalizedRadius + " 0 " + largeArcFlag + ",1 " + endPointY + "," + endPointX + " Z"} fill={color}/>
         </g>
       </svg>
