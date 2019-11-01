@@ -35,9 +35,9 @@ function _probabilityToPieAngle(probability) {
 
 function _impactToColor(impact) {
   switch (impact) {
-    case "low": return "#4CFF46";
-    case "medium": return "#FFED46";
-    case "high": return "#FF4646";
+    case "low": return "#4CAF50";
+    case "medium": return "#FFC107";
+    case "high": return "#F44336";
     default: return "gray";
   }
 }
