@@ -67,12 +67,33 @@ function categoricalValue(marks, value) {
   return marks.find(mark => mark.value === value).label;
 }
 
+function getAllPossibilities() {
+  let all = [];
+
+  ['low', 'medium', 'high'].forEach(impact => {
+    ['low', 'medium', 'high', 'always'].forEach(probability => {
+      ['small', 'medium', 'large'].forEach(groupSizeAffected => {
+        all.push({
+          'impact': impact,
+          'probability': probability,
+          'groupSizeAffected': groupSizeAffected,
+        });
+      });
+    });
+  });
+
+  return all;
+}
+
 function App() {
   const classes = useStyles();
 
   const [groupSizeAffected, setGroupSizeAffected] = useState(2)
   const [probability, setProbability] = useState(3)
   const [impact, setImpact] = useState(2)
+
+  let allPossibilities = getAllPossibilities()
+  allPossibilities.push('header')
 
   return (
     <div className="App">
@@ -119,6 +140,20 @@ function App() {
             onChange={(event, value) => setImpact(value)}/>
         </Paper>
       </Container>
+      {
+        allPossibilities.map(possibility => {
+          allPossibilities.map(possibility2 => {
+            return <DotTriageComponent
+                     groupSizeAffected={possibility['groupSizeAffected']}
+                     probability={possibility['probability']}
+                     impact={possibility['impact']}
+                     size='30px'/>
+          })
+        })
+      }
+      <table>
+        <tr></tr>
+      </table>
     </div>
   );
 }
