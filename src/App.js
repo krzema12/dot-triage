@@ -85,17 +85,6 @@ function App() {
                 impact={categoricalValue(impactMarks, impact)}/>
           </div>
           <Typography gutterBottom>
-            Group size affected
-          </Typography>
-          <Slider
-            min={1}
-            max={3}
-            defaultValue={groupSizeAffected}
-            aria-labelledby="discrete-slider-restrict"
-            step={null}
-            marks={groupSizeAffectedMarks}
-            onChange={(event, value) => setGroupSizeAffected(value)}/>
-          <Typography gutterBottom>
             Probability
           </Typography>
           <Slider
@@ -117,6 +106,17 @@ function App() {
             step={null}
             marks={impactMarks}
             onChange={(event, value) => setImpact(value)}/>
+            <Typography gutterBottom>
+              Group size affected
+            </Typography>
+            <Slider
+              min={1}
+              max={3}
+              defaultValue={groupSizeAffected}
+              aria-labelledby="discrete-slider-restrict"
+              step={null}
+              marks={groupSizeAffectedMarks}
+              onChange={(event, value) => setGroupSizeAffected(value)}/>
         </Paper>
       </Container>
     </div>
